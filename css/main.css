@@ -1,0 +1,14 @@
+.layout-content {
+    max-width: 1024px;
+    margin:0 auto;
+}
+
+md-toolbar.budget_list_toolbar {
+    background-color: #616161;
+}
+
+
+.budget_list {
+    margin-top:25px;
+    margin-bottom: 25px;
+}

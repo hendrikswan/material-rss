@@ -8,12 +8,56 @@
     <body ng-app="MaterialRss">
 
     <div ng-controller="MainController">
-       <div layout="column" layout-fill="" tabindex="-1" role="main">
+<div layout="column" layout-fill="" tabindex="-1" role="main">
             <md-toolbar >
                 <h2 class="md-toolbar-tools">
-                    <span>RSS reader</span>
+                    <span>Budget</span>
                 </h2>
             </md-toolbar>
+
+            <div flex layout="column" layout-fill class="layout-content">
+                  <md-whiteframe class="md-whiteframe-z1 budget_list">
+                        <md-toolbar class="budget_list_toolbar">
+                            <h2 class="md-toolbar-tools">
+                                <span>Toolbar</span>
+                            </h2>
+                        </md-toolbar>
+
+                        <md-list>
+                            <md-item ng-repeat="item in budget.income">
+                                <md-item-content>
+                                    <div class="md-tile-left">
+                                        <img ng-src="{{item.face}}" class="face" alt="{{item.who}}">
+                                    </div>
+                                    <div class="md-tile-content">
+                                        {{item.description}}
+                                    </div>
+                                </md-item-content>
+                            </md-item>
+                        </md-list>
+                  </md-whiteframe>
+
+                  <md-whiteframe class="md-whiteframe-z1 budget_list">
+                        <md-toolbar class="budget_list_toolbar">
+                            <h2 class="md-toolbar-tools">
+                                <span>Toolbar</span>
+                            </h2>
+                        </md-toolbar>
+
+                        <md-list>
+                            <md-item ng-repeat="item in budget.expenses">
+                                <md-item-content>
+                                    <div class="md-tile-left">
+                                        <img ng-src="{{item.face}}" class="face" alt="{{item.who}}">
+                                    </div>
+                                    <div class="md-tile-content">
+                                        {{item.description}}
+                                    </div>
+                                </md-item-content>
+                            </md-item>
+                        </md-list>
+                  </md-whiteframe>
+            </div>
         </div>
     </div>
 
