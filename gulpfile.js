@@ -9,13 +9,14 @@ gulp.task('connect', function() {
 });
 
 gulp.task('reload', function () {
-  gulp.src('./*.*')
+
+  gulp.src('./{css,js,views}/**/*.{css,js,html}')
     .pipe(connect.reload());
 });
 
 
 gulp.task('watch', function () {
-  gulp.watch(['./*.*'], ['reload']);
+  gulp.watch(['./{css,js,views}/**/*.{css,js,html}'], ['reload']);
 });
 
 gulp.task('default', ['connect', 'watch']);
