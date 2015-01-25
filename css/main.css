@@ -1,14 +1,59 @@
+body {
+    background-color: #ECECEC;
+font-family: 'Roboto', sans-serif;
+}
+
 .layout-content {
     max-width: 1024px;
+    width: 90%;
     margin:0 auto;
 }
 
 md-toolbar.budget_list_toolbar {
     background-color: #616161;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 
 .budget_list {
     margin-top:25px;
     margin-bottom: 25px;
+}
+
+
+.budget_list_icon {
+    margin-left: 10px;
+    width: 25px;
+}
+
+
+md-whiteframe {
+    background-color: #fff;
+}
+
+
+.budget_list_heading {
+    padding-bottom:0px;
+    margin-bottom: -10px;
+    padding-left: 20px;
+    color: #999;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.budget_list_item {
+    border-top: solid 1px #ECECEC;
+}
+
+
+md-item:first-child .budget_list_item {
+    border-top: none;
+}
+
+
+.budget_list_amount {
+    color: #333;
+    font-weight: 700;
+    text-align: right;
 }

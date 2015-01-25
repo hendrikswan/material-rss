@@ -8,15 +8,17 @@ gulp.task('connect', function() {
   });
 });
 
+var reloadPattern = ['./{css,js,views}/**/*.{css,js,html}', './index.html'];
+
 gulp.task('reload', function () {
 
-  gulp.src('./{css,js,views}/**/*.{css,js,html}')
+  gulp.src(reloadPattern)
     .pipe(connect.reload());
 });
 
 
 gulp.task('watch', function () {
-  gulp.watch(['./{css,js,views}/**/*.{css,js,html}'], ['reload']);
+  gulp.watch(reloadPattern, ['reload']);
 });
 
 gulp.task('default', ['connect', 'watch']);

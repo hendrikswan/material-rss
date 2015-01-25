@@ -4,6 +4,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="css/main.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 </head>
     <body ng-app="MaterialRss">
 
@@ -16,46 +17,35 @@
             </md-toolbar>
 
             <div flex layout="column" layout-fill class="layout-content">
+                <h4 class="budget_list_heading">Income</h4>
+                <md-whiteframe class="md-whiteframe-z1 budget_list">
+
+                    <md-list>
+                        <md-item ng-repeat="item in budget.income">
+                            <md-item-content class="budget_list_item">
+                                <div class="md-tile-content " layout layout="row">
+                                    <div class="budget_list_description" flex="33">{{item.description}}</div>
+                                    <div class="budget_list_category"  flex="33">{{item.category}}</div>
+                                    <div class="budget_list_amount"  flex="33">{{item.amount}}</div>
+                                </div>
+                            </md-item-content>
+                        </md-item>
+                    </md-list>
+                </md-whiteframe>
+
+                <h4 class="budget_list_heading">Expenses</h4>
                   <md-whiteframe class="md-whiteframe-z1 budget_list">
-                        <md-toolbar class="budget_list_toolbar">
-                            <h2 class="md-toolbar-tools">
-                                <span>Toolbar</span>
-                            </h2>
-                        </md-toolbar>
-
-                        <md-list>
-                            <md-item ng-repeat="item in budget.income">
-                                <md-item-content>
-                                    <div class="md-tile-left">
-                                        <img ng-src="{{item.face}}" class="face" alt="{{item.who}}">
-                                    </div>
-                                    <div class="md-tile-content">
-                                        {{item.description}}
-                                    </div>
-                                </md-item-content>
-                            </md-item>
-                        </md-list>
-                  </md-whiteframe>
-
-                  <md-whiteframe class="md-whiteframe-z1 budget_list">
-                        <md-toolbar class="budget_list_toolbar">
-                            <h2 class="md-toolbar-tools">
-                                <span>Toolbar</span>
-                            </h2>
-                        </md-toolbar>
-
-                        <md-list>
-                            <md-item ng-repeat="item in budget.expenses">
-                                <md-item-content>
-                                    <div class="md-tile-left">
-                                        <img ng-src="{{item.face}}" class="face" alt="{{item.who}}">
-                                    </div>
-                                    <div class="md-tile-content">
-                                        {{item.description}}
-                                    </div>
-                                </md-item-content>
-                            </md-item>
-                        </md-list>
+                    <md-list>
+                        <md-item ng-repeat="item in budget.expenses">
+                            <md-item-content class="budget_list_item">
+                                <div class="md-tile-content " layout layout="row">
+                                    <div class="budget_list_description" flex="33">{{item.description}}</div>
+                                    <div class="budget_list_category"  flex="33">{{item.category}}</div>
+                                    <div class="budget_list_amount"  flex="33">{{item.amount}}</div>
+                                </div>
+                            </md-item-content>
+                        </md-item>
+                    </md-list>
                   </md-whiteframe>
             </div>
         </div>
