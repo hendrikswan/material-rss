@@ -9,31 +9,31 @@ font-family: 'Roboto', sans-serif;
     margin:0 auto;
 }
 
-md-toolbar.budget_list_toolbar {
+md-toolbar.rss_list_toolbar {
     background-color: #616161;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
 
 
-.budget_list {
+.rss_list {
     margin-top:25px;
     margin-bottom: 25px;
 }
 
 
-.budget_list_icon {
+.rss_list_icon {
     margin-left: 10px;
     width: 25px;
 }
 
 
-md-whiteframe {
+md-whiteframe, md-card {
     background-color: #fff;
 }
 
 
-.budget_list_heading {
+.rss_list_heading {
     padding-bottom:0px;
     margin-bottom: -10px;
     padding-left: 20px;
@@ -42,17 +42,23 @@ md-whiteframe {
     font-weight: 500;
 }
 
-.budget_list_item {
+.rss_list_item {
     border-top: solid 1px #ECECEC;
 }
 
+.rss_list_add_btn  {
+    position: absolute;
+    bottom: 20px;
+    right:20px;
+}
 
-md-item:first-child .budget_list_item {
+
+md-item:first-child .rss_list_item {
     border-top: none;
 }
 
 
-.budget_list_amount {
+.rss_list_amount {
     color: #333;
     font-weight: 700;
     text-align: right;

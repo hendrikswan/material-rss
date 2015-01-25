@@ -12,36 +12,55 @@
 <div layout="column" layout-fill="" tabindex="-1" role="main">
             <md-toolbar >
                 <h2 class="md-toolbar-tools">
-                    <span>Budget</span>
+                    <span>RSS reader</span>
                 </h2>
             </md-toolbar>
 
-            <div flex layout="column" layout-fill class="layout-content">
-                <h4 class="budget_list_heading">Income</h4>
-                <md-whiteframe class="md-whiteframe-z1 budget_list">
+             <md-button ng-click="addFeed()" class="md-fab md-primary rss_list_add_btn" aria-label="New feed">
+                <md-icon  icon="/images/add.png" style="width: 16px; height: 16px;">
+                </md-icon>
+             </md-button>
+
+
+            <div flex layout="column" ng-hide="tutorialRead" layout-fill class="layout-content">
+                <md-card>
+                    <md-card-content>
+                        <h1>Welcome</h1>
+                        <p>
+                          Hi ya! This is the RSS reader app!
+                        </p>
+
+                        <p>Add a new feed by clicking on the button at the bottom right of the screen.</p>
+                    </md-card-content>
+                </md-card>
+            </div>
+
+            <div flex layout="column" ng-show="tutorialRead" layout-fill class="layout-content">
+                <h4 class="rss_list_heading">Income</h4>
+                <md-whiteframe class="md-whiteframe-z1 rss_list">
 
                     <md-list>
                         <md-item ng-repeat="item in budget.income">
-                            <md-item-content class="budget_list_item">
+                            <md-item-content class="rss_list_item">
                                 <div class="md-tile-content " layout layout="row">
-                                    <div class="budget_list_description" flex="33">{{item.description}}</div>
-                                    <div class="budget_list_category"  flex="33">{{item.category}}</div>
-                                    <div class="budget_list_amount"  flex="33">{{item.amount}}</div>
+                                    <div class="rss_list_description" flex="33">{{item.description}}</div>
+                                    <div class="rss_list_category"  flex="33">{{item.category}}</div>
+                                    <div class="rss_list_amount"  flex="33">{{item.amount}}</div>
                                 </div>
                             </md-item-content>
                         </md-item>
                     </md-list>
                 </md-whiteframe>
 
-                <h4 class="budget_list_heading">Expenses</h4>
-                  <md-whiteframe class="md-whiteframe-z1 budget_list">
+                <h4 class="rss_list_heading">Expenses</h4>
+                  <md-whiteframe class="md-whiteframe-z1 rss_list">
                     <md-list>
                         <md-item ng-repeat="item in budget.expenses">
-                            <md-item-content class="budget_list_item">
+                            <md-item-content class="rss_list_item">
                                 <div class="md-tile-content " layout layout="row">
-                                    <div class="budget_list_description" flex="33">{{item.description}}</div>
-                                    <div class="budget_list_category"  flex="33">{{item.category}}</div>
-                                    <div class="budget_list_amount"  flex="33">{{item.amount}}</div>
+                                    <div class="rss_list_description" flex="33">{{item.description}}</div>
+                                    <div class="rss_list_category"  flex="33">{{item.category}}</div>
+                                    <div class="rss_list_amount"  flex="33">{{item.amount}}</div>
                                 </div>
                             </md-item-content>
                         </md-item>
@@ -56,7 +75,11 @@
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/hammerjs/hammer.js"></script>
     <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/x2js/xml2json.min.js"></script>
+    <script src="bower_components/angular-xml/angular-xml.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/controllers/MainController.js"></script>
+    <script src="js/controllers/AddDialogController.js"></script>
 
 </body>
 </html>
