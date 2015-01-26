@@ -73,3 +73,7 @@ md-item:first-child .rss_list_item {
 .rss_list_sync {
     margin-top: -5px;
 }
+
+.feed_error {
+    color: rgb(244,67,54);;
+}

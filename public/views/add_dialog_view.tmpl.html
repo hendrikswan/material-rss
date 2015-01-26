@@ -4,12 +4,12 @@
         <form name="feedForm">
             <label>Feed URL</label>
                 <input class="feed_url_input" type="url" name="url" required ng-model="feed.url">
- <!--                <div class="md-input-invalid ">
-                    <span ng-show="feedForm.url.$error.url">Please provide a valid url</span>
-                    <span ng-show="feedForm.bio.$dirty && feedForm.url.$error.required">URL is required</span>
-                </div> -->
+                <div class="feed_error" ng-show="addError">
+                    We could not process the feed URL
+                </div>
              </md-input-container>
           </form>
+
 
   </md-content>
   <div class="md-actions" layout="row">
