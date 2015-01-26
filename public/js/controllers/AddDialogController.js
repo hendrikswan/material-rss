@@ -10,6 +10,10 @@ angular.module( 'MaterialRss')
 
 
         $scope.add = function() {
+            if(!$scope.feed.url){
+                return;
+            }
+
             $scope.adding = true;
 
             FeedService

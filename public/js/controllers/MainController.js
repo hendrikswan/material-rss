@@ -1,5 +1,5 @@
 angular.module( 'MaterialRss')
-    .controller("MainController", function($scope, $mdDialog, FeedService){
+    .controller("MainController", function($scope, $mdDialog, $mdToast, FeedService){
         $scope.feeds = FeedService.feeds;
 
         $scope.addFeed = function(ev){
@@ -9,7 +9,12 @@ angular.module( 'MaterialRss')
                 targetEvent: ev
             })
             .then(function(url) {
-
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content('feed added successfully - syncing content')
+                        .position('bottom right')
+                        .hideDelay(1200)
+                )
             });
         }
     });
