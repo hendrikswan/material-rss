@@ -38,27 +38,21 @@
 
                 <md-progress-linear class="rss_list_sync" md-mode="indeterminate" ng-show="feedState.current == 'syncing'"></md-progress-linear>
 
-                <div flex layout="column" ng-show="items.length > 0" layout-fill class="layout-content">
-                    <h4 class="rss_list_heading">Items</h4>
-                    <md-whiteframe class="md-whiteframe-z1 rss_list">
+                <feed-list heading="Today" items="grouped.today"></feed-list>
 
-                        <md-list>
-                            <md-item ng-repeat="item in items track by $index">
-                                <md-item-content class="rss_list_item">
-                                    <div class="md-tile-content ">
-                                        <div class="rss_list_item_title" >{{item.title}}</div>
-                                    </div>
-                                </md-item-content>
-                            </md-item>
-                        </md-list>
-                    </md-whiteframe>
-                </div>
+                <feed-list heading="This week" items="grouped.thisWeek"></feed-list>
+
+                <feed-list heading="This month" items="grouped.thisMonth"></feed-list>
+
+                <feed-list heading="Older" items="grouped.old"></feed-list>
+
              </md-content>
 
 
         </div>
     </div>
 
+    <script src="/bower_components/datejs/build/date.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
@@ -70,6 +64,7 @@
     <script src="js/controllers/MainController.js"></script>
     <script src="js/controllers/AddDialogController.js"></script>
     <script src="js/services/FeedService.js"></script>
+    <script src="js/directives/FeedList.js"></script>
 
 </body>
 </html>
