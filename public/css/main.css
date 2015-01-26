@@ -63,3 +63,8 @@ md-item:first-child .rss_list_item {
     font-weight: 700;
     text-align: right;
 }
+
+
+.feed_url_input {
+    width: 250px;
+}

@@ -1,24 +1,32 @@
-var gulp = require('gulp'),
-  connect = require('gulp-connect');
+var gulp = require('gulp');
 
-gulp.task('connect', function() {
-  connect.server({
-    livereload: true,
-    port: 8005
+gulp.task('express', function() {
+  var app = require('./web');
+});
+
+var tinylr;
+gulp.task('livereload', function() {
+  tinylr = require('tiny-lr')();
+  tinylr.listen(4002);
+});
+
+function notifyLiveReload(event) {
+  var fileName = require('path').relative(__dirname, event.path);
+  console.log(fileName);
+  tinylr.changed({
+    body: {
+      files: [fileName]
+    }
   });
+}
+
+
+var reloadPattern = ['./public/{css,js,views}/**/*.{css,js,html}', './public/index.html'];
+
+gulp.task('watch', function() {
+  gulp.watch(reloadPattern, notifyLiveReload);
 });
 
-var reloadPattern = ['./{css,js,views}/**/*.{css,js,html}', './index.html'];
+gulp.task('default', ['express', 'livereload', 'watch'], function() {
 
-gulp.task('reload', function () {
-
-  gulp.src(reloadPattern)
-    .pipe(connect.reload());
 });
-
-
-gulp.task('watch', function () {
-  gulp.watch(reloadPattern, ['reload']);
-});
-
-gulp.task('default', ['connect', 'watch']);

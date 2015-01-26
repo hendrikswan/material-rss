@@ -12,7 +12,7 @@
 <div layout="column" layout-fill="" tabindex="-1" role="main">
             <md-toolbar >
                 <h2 class="md-toolbar-tools">
-                    <span>RSS reader</span>
+                    <span>RSS reader 10 </span>
                 </h2>
             </md-toolbar>
 
@@ -22,7 +22,7 @@
              </md-button>
 
 
-            <div flex layout="column" ng-hide="tutorialRead" layout-fill class="layout-content">
+            <div flex layout="column" ng-hide="feeds" layout-fill class="layout-content">
                 <md-card>
                     <md-card-content>
                         <h1>Welcome</h1>
@@ -35,37 +35,20 @@
                 </md-card>
             </div>
 
-            <div flex layout="column" ng-show="tutorialRead" layout-fill class="layout-content">
-                <h4 class="rss_list_heading">Income</h4>
+            <div flex layout="column" ng-show="feeds" layout-fill class="layout-content">
+                <h4 class="rss_list_heading">Feeds</h4>
                 <md-whiteframe class="md-whiteframe-z1 rss_list">
 
                     <md-list>
-                        <md-item ng-repeat="item in budget.income">
+                        <md-item ng-repeat="feed in feeds">
                             <md-item-content class="rss_list_item">
-                                <div class="md-tile-content " layout layout="row">
-                                    <div class="rss_list_description" flex="33">{{item.description}}</div>
-                                    <div class="rss_list_category"  flex="33">{{item.category}}</div>
-                                    <div class="rss_list_amount"  flex="33">{{item.amount}}</div>
+                                <div class="md-tile-content ">
+                                    <div class="rss_list_description" >{{feed}}</div>
                                 </div>
                             </md-item-content>
                         </md-item>
                     </md-list>
                 </md-whiteframe>
-
-                <h4 class="rss_list_heading">Expenses</h4>
-                  <md-whiteframe class="md-whiteframe-z1 rss_list">
-                    <md-list>
-                        <md-item ng-repeat="item in budget.expenses">
-                            <md-item-content class="rss_list_item">
-                                <div class="md-tile-content " layout layout="row">
-                                    <div class="rss_list_description" flex="33">{{item.description}}</div>
-                                    <div class="rss_list_category"  flex="33">{{item.category}}</div>
-                                    <div class="rss_list_amount"  flex="33">{{item.amount}}</div>
-                                </div>
-                            </md-item-content>
-                        </md-item>
-                    </md-list>
-                  </md-whiteframe>
             </div>
         </div>
     </div>
