@@ -14,7 +14,7 @@ angular.module( 'MaterialRss')
             .then(function(url) {
                 $mdToast.show(
                     $mdToast.simple()
-                        .content('feed added successfully - syncing content')
+                        .content('feed added successfully')
                         .position('top right')
                         .hideDelay(1200)
                 )
