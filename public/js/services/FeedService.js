@@ -23,8 +23,9 @@ angular.module( 'MaterialRss')
                 service.feeds = JSON.parse(localStorage.getItem('feeds'));
 
                 this.feeds.forEach(function(f){
-                    f.items.forEach(function(i){
-                        service.items.push(i);
+                    f.items.forEach(function(item){
+                        item.label = f.label;
+                        service.items.push(item);
                     })
                 });
 
@@ -54,13 +55,14 @@ angular.module( 'MaterialRss')
 
         }
 
-        service.addFeed = function(url){
+        service.addFeed = function(url, label){
             //this.state.current = 'syncing';
             //this.feeds.push(url);
             var post = $http.post('/feeds', {
                 url: url
             })
             .success(function(feed){
+                feed.label = label;
                 service.feeds.push(feed);
                 feed.items.forEach(function(i){
                     i.isRead = false;

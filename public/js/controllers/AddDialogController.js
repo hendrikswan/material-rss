@@ -16,7 +16,7 @@ angular.module( 'MaterialRss')
 
             $scope.adding = true;
 
-            FeedService.addFeed($scope.feed.url)
+            FeedService.addFeed($scope.feed.url, $scope.feed.label)
                 .then(function(){
                     $mdDialog.hide();
                 }, function(err){
