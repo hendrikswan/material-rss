@@ -82,6 +82,10 @@ md-item:first-child .rss_list_item {
     color: rgb(244,67,54);;
 }
 
-.rss_list_item_title {
+.rss_list_item_copy {
     font-size: 13px;
+}
+
+.rss_list_item_count {
+    color: #999;
 }

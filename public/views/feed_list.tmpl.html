@@ -3,11 +3,12 @@
     <md-whiteframe class="md-whiteframe-z1 rss_list">
 
         <md-list>
-            <md-item ng-repeat="item in items track by $index">
+            <md-item ng-repeat="category in items track by $index">
                 <md-item-content class="rss_list_item">
                     <div class="md-tile-content" layout="row">
-                        <div class="rss_list_item_label" flex="20">{{item.label}}</div>
-                        <div class="rss_list_item_title" flex="80">{{item.title}}</div>
+                        <div class="rss_list_item_label rss_list_item_copy" flex="20">{{category.label}} <span class="rss_list_item_count">({{category.items.length}})</span></div>
+                        <div class="rss_list_item_title rss_list_item_copy" flex="50">{{item.title}}</div>
+                        <div class="rss_list_item_domain rss_list_item_copy" flex="30">{{item.domain}}</div>
                     </div>
                 </md-item-content>
             </md-item>
