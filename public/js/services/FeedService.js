@@ -11,7 +11,7 @@ angular.module( 'MaterialRss')
         };
 
         service.initFromStorage = function(){
-
+            service.items.length = 0;
             if(localStorage.getItem('feeds')){
                 service.feeds = JSON.parse(localStorage.getItem('feeds'));
 

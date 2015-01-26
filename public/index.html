@@ -43,7 +43,7 @@
                     <md-whiteframe class="md-whiteframe-z1 rss_list">
 
                         <md-list>
-                            <md-item ng-repeat="item in items">
+                            <md-item ng-repeat="item in items track by $index">
                                 <md-item-content class="rss_list_item">
                                     <div class="md-tile-content ">
                                         <div class="rss_list_item_title" >{{item.title}}</div>
