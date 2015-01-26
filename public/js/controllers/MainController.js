@@ -1,6 +1,7 @@
 angular.module( 'MaterialRss')
     .controller("MainController", function($scope, $mdDialog, $mdToast, FeedService){
         $scope.feeds = FeedService.feeds;
+        $scope.feedState = FeedService.state;
 
         $scope.addFeed = function(ev){
             $mdDialog.show({
@@ -12,7 +13,7 @@ angular.module( 'MaterialRss')
                 $mdToast.show(
                     $mdToast.simple()
                         .content('feed added successfully - syncing content')
-                        .position('bottom right')
+                        .position('top right')
                         .hideDelay(1200)
                 )
             });

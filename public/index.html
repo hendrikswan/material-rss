@@ -35,6 +35,9 @@
                 </md-card>
             </div>
 
+
+            <md-progress-linear class="rss_list_sync" md-mode="indeterminate" ng-show="feedState.current == 'syncing'"></md-progress-linear>
+
             <div flex layout="column" ng-show="feeds.length > 0" layout-fill class="layout-content">
                 <h4 class="rss_list_heading">Feeds</h4>
                 <md-whiteframe class="md-whiteframe-z1 rss_list">

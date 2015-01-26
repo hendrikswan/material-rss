@@ -68,3 +68,8 @@ md-item:first-child .rss_list_item {
 .feed_url_input {
     width: 250px;
 }
+
+
+.rss_list_sync {
+    margin-top: -5px;
+}

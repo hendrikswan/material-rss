@@ -1,7 +1,7 @@
 angular.module( 'MaterialRss')
     .controller("AddDialogController", function($scope, $mdDialog, $timeout, $http, FeedService){
         $scope.feed = {
-            url: ''
+            url: 'http://tagtree.io'
         };
 
         $scope.cancel = function() {
