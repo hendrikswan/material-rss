@@ -1,6 +1,7 @@
 angular.module( 'MaterialRss')
     .controller("MainController", function($scope, $mdDialog, $mdToast, FeedService){
         $scope.feeds = FeedService.feeds;
+        $scope.items = FeedService.items;
         $scope.feedState = FeedService.state;
 
         $scope.addFeed = function(ev){

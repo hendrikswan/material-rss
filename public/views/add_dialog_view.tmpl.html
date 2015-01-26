@@ -1,15 +1,17 @@
 <md-dialog aria-label="Add a feed">
   <md-content class="md-padding">
-   <md-input-container>
-        <form name="feedForm">
-            <label>Feed URL</label>
-                <input class="feed_url_input" type="url" name="url" required ng-model="feed.url">
-                <div class="feed_error" ng-show="addError">
-                    We could not process the feed URL
-                </div>
-             </md-input-container>
-          </form>
+      <form name="feedForm">
+        <md-input-container>
+          <label>Feed URL</label>
+              <input class="feed_url_input" type="url" name="url" required ng-model="feed.url">
+              <div class="feed_error" ng-show="addError">
+                  We could not process the feed URL
+              </div>
+        </md-input-container>
+      </form>
 
+
+            <md-progress-linear class="rss_list_sync" md-mode="indeterminate" ng-show="adding"></md-progress-linear>
 
   </md-content>
   <div class="md-actions" layout="row">

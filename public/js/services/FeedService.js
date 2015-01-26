@@ -1,20 +1,28 @@
 angular.module( 'MaterialRss')
     .service("FeedService", function($http, $timeout, $q){
 
-        var feeds = [];
-        if(localStorage.getItem('feeds')){
-            feeds = JSON.parse(localStorage.getItem('feeds'));
-        }
 
         var service = {
-            feeds: feeds,
+            feeds: [],
+            items: [],
             state: {
                 current:'idle'
             }
         };
 
+        service.initFromStorage = function(){
 
+            if(localStorage.getItem('feeds')){
+                service.feeds = JSON.parse(localStorage.getItem('feeds'));
 
+                this.feeds.forEach(function(f){
+                    f.items.forEach(function(i){
+                        service.items.push(i);
+                    })
+                });
+            };
+
+        }
 
         service.addFeed = function(url){
             //this.state.current = 'syncing';
@@ -24,15 +32,13 @@ angular.module( 'MaterialRss')
             })
             .success(function(feed){
                 service.feeds.push(feed);
-                feed.items = feed.items.map(function(i){
+                feed.items.forEach(function(i){
                     i.isRead = false;
                     i.isPinned = false;
                 });
                 window.localStorage.setItem('feeds', JSON.stringify(service.feeds));
+                service.initFromStorage();
             });
-            // .error(function(err){
-            //     deferred.reject();
-            // });
 
             return post;
         }
@@ -40,6 +46,8 @@ angular.module( 'MaterialRss')
         service.syncFeed = function(){
             alert('yo');
         }
+
+        service.initFromStorage();
 
         return service;
     });

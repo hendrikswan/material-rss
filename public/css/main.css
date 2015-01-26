@@ -1,6 +1,10 @@
 body {
-    background-color: #ECECEC;
+
 font-family: 'Roboto', sans-serif;
+}
+
+md-content.md-default-theme {
+    background-color: #ECECEC;
 }
 
 .layout-content {
@@ -47,7 +51,7 @@ md-whiteframe, md-card {
 }
 
 .rss_list_add_btn  {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right:20px;
 }
