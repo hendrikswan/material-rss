@@ -1,5 +1,6 @@
 angular.module( 'MaterialRss')
-    .controller("MainController", function($scope, $mdDialog){
+    .controller("MainController", function($scope, $mdDialog, FeedService){
+        $scope.feeds = FeedService.feeds;
 
         $scope.addFeed = function(ev){
             $mdDialog.show({
@@ -8,8 +9,7 @@ angular.module( 'MaterialRss')
                 targetEvent: ev
             })
             .then(function(url) {
-                $scope.feeds = $scope.feeds || [];
-                $scope.feeds.push(url);
+
             });
         }
     });

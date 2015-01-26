@@ -1,5 +1,5 @@
 angular.module( 'MaterialRss')
-    .controller("AddDialogController", function($scope, $mdDialog, $timeout, $http){
+    .controller("AddDialogController", function($scope, $mdDialog, $timeout, $http, FeedService){
         $scope.feed = {
             url: ''
         };
@@ -7,13 +7,19 @@ angular.module( 'MaterialRss')
         $scope.cancel = function() {
             $mdDialog.cancel();
         };
-        $scope.add = function() {
-            //$mdDialog.hide(url);
 
+
+        $scope.add = function() {
             $scope.adding = true;
 
-            $http.get($scope.feed.url).success(function (data) {
-                console.log(data);
-            });
+            FeedService
+                .addFeed($scope.feed.url)
+                .then(function(){
+                    $mdDialog.hide();
+                }, function(err){
+                    $scope.addError = true;
+                });
+
+
         };
     });
