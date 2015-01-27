@@ -46,9 +46,29 @@ md-whiteframe, md-card {
     font-weight: 500;
 }
 
+.rss_category_list_item {
+
+}
+
 .rss_list_item {
     border-top: solid 1px #ECECEC;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
 }
+
+.rss_list_item:hover {
+    background-color: #FAF7F7;
+}
+
+.rss_list_expanded{
+    width: 100%;
+    background-color: #E9E9E9;
+}
+
+.rss_list_expanded .rss_list_item:hover{
+    background-color: inherit;
+}
+
 
 .rss_list_add_btn  {
     position: fixed;
@@ -89,3 +109,4 @@ md-item:first-child .rss_list_item {
 .rss_list_item_count {
     color: #999;
 }
+

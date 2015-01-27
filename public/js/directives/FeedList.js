@@ -9,6 +9,10 @@ angular.module('MaterialRss').directive('feedList', function () {
 
         link: function (scope, element, attr, ctrl) {
 
+            scope.expand = function(){
+                this.expanded = true;
+            }
+
             // scope.$watch('items', function(newVal) {
             //     if (newVal) {
 

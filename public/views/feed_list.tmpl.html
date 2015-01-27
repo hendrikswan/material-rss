@@ -1,15 +1,28 @@
 <div flex layout="column" ng-show="items.length > 0" layout-fill class="layout-content">
     <h4 class="rss_list_heading">{{heading}}</h4>
     <md-whiteframe class="md-whiteframe-z1 rss_list">
-
         <md-list>
             <md-item ng-repeat="category in items track by $index">
-                <md-item-content class="rss_list_item">
-                    <div class="md-tile-content" layout="row">
+                <md-item-content class="rss_list_item rss_category_list_item">
+                    <div class="md-tile-content" ng-click="expand()" layout="row" ng-show="!expanded">
                         <div class="rss_list_item_label rss_list_item_copy" flex="20">{{category.label}} <span class="rss_list_item_count">({{category.items.length}})</span></div>
                         <div class="rss_list_item_title rss_list_item_copy" flex="50">{{category.domainLabel}}</div>
                         <div class="rss_list_item_domain rss_list_item_copy" flex="30">{{item.domain}}</div>
                     </div>
+
+                    <div class="rss_list_expanded" ng-show="expanded">
+                        <md-item  ng-repeat="item in category.items track by $index" >
+                            <md-item-content class="rss_list_item">
+                                <div class="md-tile-content" layout="row" >
+                                    <div class="rss_list_item_label rss_list_item_copy" flex="80">{{item.title}}</div>
+                                    <div class="rss_list_item_title rss_list_item_copy" flex="20">{{item.domain}}</div>
+                                </div>
+
+                            </md-item-content>
+                        </md-item>
+                    </div>
+
+
                 </md-item-content>
             </md-item>
         </md-list>
