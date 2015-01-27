@@ -8,7 +8,7 @@
 </head>
     <body ng-app="MaterialRss">
 
-    <div ng-controller="MainController">
+    <div ng-controller="MainController" ng-cloak>
         <div layout="column" layout-fill="" tabindex="-1" role="main">
             <md-toolbar >
                 <h2 class="md-toolbar-tools">
@@ -53,6 +53,7 @@
     </div>
 
     <script src="/bower_components/datejs/build/date.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
